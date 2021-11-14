@@ -1,2 +1,38 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
-%} {% endblock %}
+%}
+<div class="container"></div>
+<div align="center">
+    <h1 class="display-6">Posts</h1>
+</div>
+<br />
+<div id="posts">
+    {% for post in posts %}
+    <div class="card border-dark">
+        <div class="card-header d-flex justify-content-between align-items-center"> <a
+                href="/posts/{{post.user.username}}">{{ post.user.username }}</a>
+            {% if user.id == post.author %}
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                    <li><a class="dropdown-item" href="/delete-post/{{post.id}}">Delete</a></li>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ post.text }}</h5>
+        </div>
+        <div class="card-footer text-muted"> {{ post.date_created }} </div>
+    </div>
+    <br />
+    {% endfor %}
+</div>
+<div align ="center">
+    <a href="/create-post" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create A Post</a>
+    <br />
+</div>
+</div>
+
+{% endblock %}

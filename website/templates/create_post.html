@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block title %}Post{% endblock %} {% block content%}
+
+<h1 align="center" class="display-6">Say Something.</h1>
+
+<form method="POST" class="form-floating">
+  <div class="form-floating">
+    <textarea
+      name="text"
+      class="form-control"
+      placeholder="Leave a comment here"
+      id="text"
+    ></textarea>
+    <label for="text">Type In Here...</label>
+  </div>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Post</button>
+    <a href="/home"
+      ><button type="button" class="btn btn-secondary">Back To Home</button></a
+    >
+  </div>
+</form>
+
+{% endblock %}
